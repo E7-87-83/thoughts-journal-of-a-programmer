@@ -7,7 +7,7 @@
 如果是商業人員，那就……我在進入這所公司之前，曾當兩家小企業的 in-house IT 。其中一個離開的原因是上司的要求有時太宏大[1]，有時，又感到上司是企圖用科技的手段去解決根於人治的問題。「Repeat after me: all technical problems of sufficient scope or impact are actually political problems first.Repeat after me: all technical problems of sufficient scope or impact are actually political problems first.」[2]
 
 
-無論如何，在工作上與人相處，有自信的話，應不亢不卑，而且要營造可以舒適地回報問題的處境。
+無論如何，在工作上與人相處，有自信的話，應不亢不卑，而且要營造可以舒適地回報問題的環境。
 
 程式員也常常要了解顧客的需求，回應顧客的疑問－－雖然這方面可以有 project/product managers 等商業人員作橋樑。
 
