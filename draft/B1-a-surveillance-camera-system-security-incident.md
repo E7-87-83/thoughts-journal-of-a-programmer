@@ -6,11 +6,11 @@ _本文原為 HKUSPACE PG Dip 的作業；該課我取得A+的成績。以下為
 
 2021年3月8日和9日，一班黑客進入了 Verkada －－一家矽谷公司－－的伺服器。 Verkada 提供 IoT 產品和服務，包括訪問控制（[physical] access control ）、室內環境探測器和監視攝影機。[1]本次資安事件最受影響的業務，是它們的監視攝影機業務。根據 Verkada 後來發表的報告[2]，這班黑客找到一個系統系數配置失當的顧客支援伺服器（"a misconfigured customer support server"），盜取了150,000個攝影機當下和記錄裏的真實拍攝片段。 Verkada 的服務提供人臉識別，這使得這群黑客輕易可以取得 Verkada 客戶場所活動部分的人們身分－－這些場所包括醫療中心、醫院、學校、監獄、購物中心、辦公室和私人寓所。[3] 這些黑客還下載了一份載有部分 Verkada 客戶名單連電郵地址。[4]
 
-資訊安全有三大支柱：保密（ confidentiality ）、完整（ Integrity ）和可用（ Availability ）。顯然，在這次事件，保密性受損了：可能有身分外洩（identity leaks），而且 Verkada 客戶名單被盜了。8個客戶的WiFi credientials也被盜了。 Integrity 和 Availability 方面， Verkada 即時暫時關閉了所有內部管理戶口的權限，並在六小時內通知了它們的客戶。[5] Cloudflare 也是 Verkada 的客戶之一，Cloudflare 對媒體表示他們知道事件發生後隨即暫停了所有攝影機並中斷它們跟辦公室網絡的連結（“disabled the cameras and disconnected them from office networks”）。
+資訊安全有三大支柱：保密（ confidentiality ）、完整（ Integrity ）和可用（ Availability ）。顯然，在這次事件，保密性受損了：可能有身分外洩（identity leaks），而且 Verkada 客戶名單被盜了。8個客戶的WiFi credientials也被盜了。至於完整性和可用性方面， Verkada 即時暫時關閉了所有內部管理戶口的權限，並在六小時內通知了它們的客戶。[5] Cloudflare 也是 Verkada 的客戶之一，Cloudflare 對媒體表示他們知道事件發生後隨即暫停了所有攝影機並中斷它們跟辦公室網絡的連結（“disabled the cameras and disconnected them from office networks”）。
 
 數據完整和正確，在資訊安全上為之符合完整性。雖然入侵者也許沒有被授權修改 Verkada 和客戶現有的數據，但黑客們在檔案紀錄加了六個影片。此外，因為不得不暫時關閉了監視攝影機一段時間， Verkada 的客戶的監控場所數據欠完整了。數據的可用性也受影響，這方面可導致客戶一些不小的損失。我們都知道監視攝影機是加強一個場所的保安，但這些鏡頭暫時失去了作用。使用監視攝影機監察各種場所的客戶，冒受不同的損失：不誠實又不小心的員工打破了貨品而無人得知；私人寓所被不速之客闖入而無人得知；精神科診療地點的病人在暗角自我傷害，沒有醫護人員得知……
 
-根據定義， IoT 設備需要網絡連接；根據功能性考慮，該設備和駁接的網絡資料庫可能儲存了用戶的私人資料。[7] 這次 Verkada breach 按 OWASP 的分類可為安全配置錯誤（Security Misconfiguration）和存取控制失效（Broken Access Control）。
+根據定義， IoT 設備需要網絡連接；根據功能性考慮，該設備和駁接的網絡資料庫可能儲存了用戶的私人資料。[7] 這次 Verkada breach 按 OWASP 的分類可為安全配置錯誤（ Security Misconfiguration ）和存取控制失效（ Broken Access Control ）。
 
 Verkada 監控攝影機系統依賴雲端伺服器執行其任務。其基本功能包括錄影、臉部辨識，和臉部辨識後的身分辨識。這個架構並不簡單，而臉部辨識已涉及資訊安全三大支柱之一「保密」。早在 2020 ， Verkada 的一個員工把客戶資料庫裏的女性圖象下載了並與人分享。這件醜聞顯示 Verkada 系統的其中一個弱點：[8] 內部人員行為失當。防範這種事件發生，可以在聘請過程中更加謹慎，並教育員工這種行為的法律後果。回到本文關注的資安事件，這次是外部的入侵。一個人如果首次使用一個軟體或一套資訊系統，常要客戶服務支援。而客服系統是這次事件的攻擊點。根據 OWASP ，自動化過程能防範安全配置錯誤 [9] ；而 Verkada 在事件後宣布公司以後的開發都會採取「配置即代碼」（ configuration as code ） [10]。至於存取控制失效方面， Verkada 宣存公司會採取「職責分離」（ seperation of duty ）的資安政策。
 
